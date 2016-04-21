@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Styles/pageStyle.css">
+</head>
+<body>
+    <div id="contentPane">
+    <!--BootStrap viewport container-->
+        <div class="container">
+
+            <!-- The main content pane to hold the other componenets -->
+            <!-- Holds the title pane -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="title">
+                        <h1>FLORIDA PRE-PAID BENEFITS CALCULATOR</h1>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <!--The first question the user is asked panel-->
+            <div class="row">
+                <div id="q1">
+                    <div class="col-md-4">
+                        <label>1.) Is you Florida Pre-Paid contract year prior to July 1, 2007</label>
+                    </div>
+                    <div class="col-md-8">
+                        <form action="">
+                            <input type="radio" name="yes" id="q1rbtyes" value="yes" /> Yes
+                            <input type="radio" name="no" id="q1rbtno" value="no"> No
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <!--Second question the user is asked panel-->
+            <div class="row">
+                <div id="q2">
+                    <div class="col-md-4">
+                        <label>2.) Did you purchase the optional Local Fees Plan?</label>
+                    </div>
+                    <div class="col-md-8">
+                        <form action="">
+                            <div>
+                                <input type="radio" name="yes" id="q2rbtyes" value="yes" /> Yes
+                                <input type="radio" name="no" id="q2rbtno" value="no"> No
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <!--Third question the user is asked-->
+            <div class="row">
+                <div id="q3">
+                    <div class="col-md-4">
+                        <label>3.) Did you purchase the optional Differential Fee Plan?</label>
+                    </div>
+                    <div class="col-md-8">
+                        <form action="">
+                            <input type="radio" name="yes" id="q3rbtyes" value="yes" /> Yes
+                            <input type="radio" name="no" id="q3rbtno" value="no"> No
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <!--The fourth question the user is asked-->
+            <div class="row">
+                <div id="q4">
+                    <div class="col-md-4">
+                        <label>4.) How many credit hours do you anticipate to take per term?</label>
+                    </div>
+                    <div class="col-md-8">
+                        <form action="">
+                            <input type="text" name="creditHours" value="12" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <!--Results-->
+            <iv id="results">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Total Estimated Tuition & Fees: </label>
+                    </div>
+                    <div class="col-md-8">
+                        <form action="">
+                            <input type="text" id="estTuititon" name="estTuition" value="" />
+                        </form>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Total Estimated Florida Prepaid Benefit: </label>
+                    </div>
+                    <div class="col-md-8">
+                        <form action="">
+                            <input type="text" id="estBenefit" name="estBenefit" value="" />
+                        </form>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Your Estimated Out-of-Pocket Tuition & Fee Cost (per term): </label>
+                    </div>
+                    <div class="col-md-8">
+                        <form action="">
+                            <input type="text" id="estOutOfPocket" name="estOutOfPocket" value="" />
+                        </form>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Estimated % of cost covered by Florida Prepaid: </label>
+                    </div>
+                    <div class="col-md-8">
+                        <form action="">
+                            <input type="text" id="percentCovered" name="percentCovered" value="" />
+                        </form>
+                    </div>
+                </div>
+    </div>
+</div>
+</body>
+</html>

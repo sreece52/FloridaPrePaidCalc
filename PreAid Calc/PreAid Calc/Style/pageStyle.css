@@ -1,0 +1,40 @@
+﻿body {
+    background-color:white;
+}
+
+hr {
+     border-top: 1px solid black;
+}
+
+#contentPane {
+    background-color:#72BB53;
+    border: 5px solid black;
+    border-radius: 10px;
+    padding:10px 10px 10px 10px;
+}
+
+#title{
+    border: 1px solid black;
+    background-color: #006E8C;
+    text-align: center;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+#q1 {
+}
+
+#q2 {
+}
+
+#q3 {
+}
+
+#q4 {
+}
+
+#results {
+}
+
