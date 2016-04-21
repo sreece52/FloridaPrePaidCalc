@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{C3D2D8DD-95B6-428A-BC91-4090478BED7F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrePaid Calc", "WebApplication1\PrePaid Calc.csproj", "{C3D2D8DD-95B6-428A-BC91-4090478BED7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
