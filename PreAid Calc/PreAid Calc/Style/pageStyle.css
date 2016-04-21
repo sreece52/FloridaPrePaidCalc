@@ -1,40 +1,38 @@
-﻿body {
-    background-color:white;
+﻿#contentPane {
+    align-content:center;
 }
 
-hr {
-     border-top: 1px solid black;
-}
-
-#contentPane {
-    background-color:#72BB53;
-    border: 5px solid black;
-    border-radius: 10px;
-    padding:10px 10px 10px 10px;
-}
-
-#title{
-    border: 1px solid black;
+#title {
     background-color: #006E8C;
+    color: white; 
     text-align: center;
-    margin-right: 100px;
-    margin-left: 100px;
-    margin-top: 20px;
-    border-radius: 20px;
 }
 
-#q1 {
+#q1{
+    background-color: #72BB53; 
+    color: black;
 }
 
-#q2 {
+#q2{
+    background-color: #006E8C; 
+    color: white;
 }
 
-#q3 {
+#q3{
+    background-color: #72BB53; 
+    color: black;
 }
 
-#q4 {
+#q4{
+    background-color: #006E8C; 
+    color: white;
 }
 
-#results {
+#tableHolder {
+    background-color: #72BB53; 
+    color: black;
 }
 
+img {
+    float:right;
+}
