@@ -108,11 +108,13 @@ namespace FloridaPrepaidCalc
         public void Test1()
         {
             System.Console.WriteLine("Test1");
+            System.Console.ReadLine();
         }
 
         public void Test2()
         {
             System.Console.WriteLine("Test2");
+            System.Console.ReadLine();
         }
     }
 }
