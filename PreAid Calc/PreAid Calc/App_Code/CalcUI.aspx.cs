@@ -104,5 +104,15 @@ namespace FloridaPrepaidCalc
             System.Console.WriteLine("Total Estimated Florida Prepaid Benefit: " + estPrepaidBenefit);
             System.Console.WriteLine("Your Estimated Out-of-Pocket Tuition & Fee Cost (per term): " + (estTuitionAndFees - estPrepaidBenefit));
         }
+
+        public void Test1()
+        {
+            System.Console.WriteLine("Test1");
+        }
+
+        public void Test2()
+        {
+            System.Console.WriteLine("Test2");
+        }
     }
 }

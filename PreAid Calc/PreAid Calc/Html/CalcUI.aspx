@@ -32,8 +32,8 @@
                             <div id="q1" class="panel-heading">Is you Florida Pre-Paid contract year prior to July 1, 2007</div>
                             <div class="panel-body">
                                 <form action="">
-                                    <input type="radio" name="yes" id="q1rbtyes" value="yes" runat="server" /> Yes
-                                    <input type="radio" name="no" id="q1rbtno" value="no" runat="server"> No
+                                    <asp:RadioButton type="radio" name="yes" id="q1rbtyes" value="yes" runat="server" OnClick="Test1"/> Yes
+                                    <asp:RadioButton type="radio" name="no" id="q1rbtno" value="no" runat="server" OnClick="Test2"/> No
                                 </form>
                             </div>
                         </div>

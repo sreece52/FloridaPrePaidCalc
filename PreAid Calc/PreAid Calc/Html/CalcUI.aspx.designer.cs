@@ -19,7 +19,7 @@ namespace PreAid_Calc {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton q1rbtyes;
+        protected global::System.Web.UI.WebControls.RadioButton q1rbtyes;
         
         /// <summary>
         /// q1rbtno control.
@@ -28,6 +28,6 @@ namespace PreAid_Calc {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton q1rbtno;
+        protected global::System.Web.UI.WebControls.RadioButton q1rbtno;
     }
 }
