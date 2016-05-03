@@ -26,20 +26,18 @@
                 <hr>
 
                 <!--The first question the user is asked panel-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div id="q1" class="panel-heading">Is you Florida Pre-Paid contract year prior to July 1, 2007</div>
-                            <div class="panel-body">
-                                <form action="" runat="server">
+                <form action="" runat="server">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div id="q1" class="panel-heading">Is you Florida Pre-Paid contract year prior to July 1, 2007</div>
+                                <div class="panel-body">
                                     <asp:RadioButton type="radio" name="yes" id="q1rbtyes" value="yes" runat="server" OnCheckedChanged="q1rbtyes_CheckedChanged" AutoPostBack="true"/> Yes
                                     <asp:RadioButton type="radio" name="no" id="q1rbtno" value="no" runat="server" OnCheckedChanged="q1rbtno_CheckedChanged" AutoPostBack="true"/> No
-                                </form>
-                            </div>
-                        </div>
+                                </div>
+                             </div>
+                         </div>
                     </div>
-                </div>
-
                 <br>
 
                 <!--The second question panel-->
@@ -48,10 +46,8 @@
                         <div class="panel panel-default">
                             <div id="q2" class="panel-heading">Did you purchase the optional Local Fees Plan?</div>
                             <div class="panel-body">
-                                <form action="" runat="server" >
-                                    <asp:RadioButton type="radio" name="yes" id="q2rbtyes" value="yes" runat="server" OnCheckedChanged="q2rbtyes_CheckedChanged"/> Yes
-                                    <asp:RadioButton type="radio" name="no" id="q2rbtno" value="no" runat="server" OnCheckedChanged="q2rbtno_CheckedChanged"/> No
-                                </form>
+                                <asp:RadioButton type="radio" name="yes" id="q2rbtyes" value="yes" runat="server" OnCheckedChanged="q2rbtyes_CheckedChanged" AutoPostBack="true"/> Yes
+                                <asp:RadioButton type="radio" name="no" id="q2rbtno" value="no" runat="server" OnCheckedChanged="q2rbtno_CheckedChanged" AutoPostBack="true"/> No
                             </div>
                         </div>
                     </div>
@@ -65,15 +61,13 @@
                         <div class="panel panel-default">
                             <div id="q3" class="panel-heading">Did you purchase the optional Differential Fee Plan?</div>
                             <div class="panel-body">
-                                <form action="" runat="server" >
-                                    <asp:RadioButton type="radio" name="yes" id="q3rbtyes" value="yes" runat="server" OnCheckedChanged="q3rbtyes_CheckedChanged" /> Yes
-                                    <asp:RadioButton type="radio" name="no" id="q3rbtno" value="no" runat="server" OnCheckedChanged="q3rbtno_CheckedChanged"/> No
-                                </form>
+                                <asp:RadioButton type="radio" name="yes" id="q3rbtyes" value="yes" runat="server" OnCheckedChanged="q3rbtyes_CheckedChanged" AutoPostBack="true"/> Yes
+                                <asp:RadioButton type="radio" name="no" id="q3rbtno" value="no" runat="server" OnCheckedChanged="q3rbtno_CheckedChanged" AutoPostBack="true"/> No
                             </div>
                         </div>
                     </div>
                 </div>
-
+                
                 <br>
 
                 <!--Fourth question panel-->
@@ -121,7 +115,7 @@
                         </tbody>
                     </table>
                 </div>
-
+                </form>
             </div>
         </div>
     </div>

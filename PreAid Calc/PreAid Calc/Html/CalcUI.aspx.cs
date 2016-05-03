@@ -47,31 +47,36 @@ namespace PreAid_Calc
         /*Use Request.Form to get values*/
 
         /*Called when corresponding HTML radio button is clicked to update vars.*/
-        protected void priorTo2007Selected(Boolean selection)
+        protected void priorTo2007Selected()
         {
-            this.priorTo2007 = selection;
+            this.priorTo2007 = q1rbtyes.Checked;
             this.tuitionAndFeeRate = priorTo2007 ? 167.56 : currentTuitionRate;
             this.prepaidTuitionPlanRate = 117.08;
 
             /*If purchased prior to 2007, differential fees plan must be false*/
             if (priorTo2007)
             {
-                /*Disable diffFeesPlan buttons, call diffFeePlanSelected to update related vars*/
-                purchasedDiffFeesPlan = false;
+                /*Disable diffFeesPlan buttons, hand off to respective method*/
+                
+                q3rbtno.Enabled = false;
+                q3rbtno.Checked = true;
+                q3rbtyes.Enabled = false;
+                q3rbtyes.Checked = false;
+                diffFeePlanSelected();
             }
         }
 
         /*Called when corresponding HTML radio button is clicked to update vars.*/
-        protected void localFeesPlanSelected(Boolean selection)
+        protected void localFeesPlanSelected()
         {
-            this.purchasedLocalFeesPlan = selection;
+            this.purchasedLocalFeesPlan = q2rbtyes.Checked;
             this.localFeesPlanRate = purchasedLocalFeesPlan ? 38.28 : 0;
         }
 
         /*Called when corresponding HTML radio button is clicked to update vars.*/
-        protected void diffFeePlanSelected(Boolean selection)
+        protected void diffFeePlanSelected()
         {
-            this.purchasedDiffFeesPlan = priorTo2007 ? false : selection;
+            this.purchasedDiffFeesPlan = q3rbtyes.Checked;
             this.prepaidDiffFeePlanRate = purchasedDiffFeesPlan ? 36.38 : 0;
         }
 
@@ -96,34 +101,43 @@ namespace PreAid_Calc
             System.Console.WriteLine("Your Estimated Out-of-Pocket Tuition & Fee Cost (per term): " + (estTuitionAndFees - estPrepaidBenefit));
         }
 
+        /*Prior to 2007 question*/
         protected void q1rbtyes_CheckedChanged(object sender, EventArgs e)
         {
             q1rbtno.Checked = false;
+            priorTo2007Selected();
         }
 
         protected void q1rbtno_CheckedChanged(object sender, EventArgs e)
         {
             q1rbtyes.Checked = false;
+            priorTo2007Selected();
         }
 
+        /*Local Fees Plan question*/
         protected void q2rbtyes_CheckedChanged(object sender, EventArgs e)
         {
             q2rbtno.Checked = false;
+            localFeesPlanSelected();
         }
 
         protected void q2rbtno_CheckedChanged(object sender, EventArgs e)
         {
             q2rbtyes.Checked = false;
+            localFeesPlanSelected();
         }
 
+        /*Differential Fee Plan question*/
         protected void q3rbtyes_CheckedChanged(object sender, EventArgs e)
         {
             q3rbtno.Checked = false;
+            diffFeePlanSelected();
         }
 
         protected void q3rbtno_CheckedChanged(object sender, EventArgs e)
         {
             q3rbtyes.Checked = false;
+            diffFeePlanSelected();
         }
     }
 }
