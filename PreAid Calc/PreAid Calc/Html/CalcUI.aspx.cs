@@ -57,10 +57,17 @@ namespace PreAid_Calc
             if (priorTo2007)
             {
                 /*Disable diffFeesPlan buttons, hand off to respective method*/
-                
                 q3rbtno.Enabled = false;
                 q3rbtno.Checked = true;
                 q3rbtyes.Enabled = false;
+                q3rbtyes.Checked = false;
+                diffFeePlanSelected();
+            }
+            else //Re-enable buttons if option changed to "No"
+            {
+                q3rbtno.Enabled = true;
+                q3rbtno.Checked = false;
+                q3rbtyes.Enabled = true;
                 q3rbtyes.Checked = false;
                 diffFeePlanSelected();
             }

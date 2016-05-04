@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CalcUI.aspx.cs" Inherits="PreAid_Calc.CalcUI" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CalcUI.aspx.cs" Inherits="PreAid_Calc.CalcUI" EnableEventValidation="false"%>
 
 <!DOCTYPE html>
 <html>
