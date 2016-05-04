@@ -77,7 +77,7 @@
                             <div id="q4" class="panel-heading"> How many credit hours do you anticipate to take per term?</div>
                             <div class="panel-body">
                                 <form action="">
-                                    <input type="text" id="creditHours" value="0" />
+                                    <asp:TextBox type="text" id="credHours" value="0" runat="server" OnTextChanged="creditHours_TextChanged" AutoPostBack="true"/>
                                 </form>
                             </div>
                         </div>
@@ -98,19 +98,15 @@
                         <tbody>
                             <tr>
                                 <td><em>Total Estimated Tuition & Fees: </em></td>
-                                <td><input data-toggle="tooltip" title="Credit hours * Tuition per credit hour" type="text" id="estTuititon" value="" /></td>
+                                <td><asp:TextBox data-toggle="tooltip" title="Credit hours * Tuition per credit hour" type="text" id="estTuititon" value="" Enabled="false" runat="server"/></td>
                             </tr>
                             <tr>
                                 <td><em>Total Estimated Florida Prepaid Benefit: </em></td>
-                                <td><input data-toggle="tooltip" title="(Tuition Plan + Local Fees Plan + Differential Fee Plan) * Credit Hours" type="text" id="estBenefit" value="" /></td>
+                                <td><asp:TextBox data-toggle="tooltip" title="(Tuition Plan + Local Fees Plan + Differential Fee Plan) * Credit Hours" type="text" id="estBenefit" value="" Enabled="false" runat="server"/></td>
                             </tr>
                             <tr>
                                 <td><em>Your Estimated Out-of-Pocket Tuition & Fee Cost (per term): </em></td>
-                                <td><input data-toggle="tooltip" title="Total Estimated Tuition & Fees - Total Estimated Florida Prepaid Benefit" type="text" id="estOutOfPocket" value="" /></td>
-                            </tr>
-                            <tr>
-                                <td><em>Estimated % of cost covered by Florida Prepaid: </em></td>
-                                <td><input data-toggle="tooltip" title="Total Estimated Florida Prepaid Benefit / Total Estimated Tuition & Fees" type="text" id="percentCovered" value="" /></td>
+                                <td><asp:TextBox data-toggle="tooltip" title="Total Estimated Tuition & Fees - Total Estimated Florida Prepaid Benefit" type="text" id="estOutOfPocket" value="" Enabled="false" runat="server"/></td>
                             </tr>
                         </tbody>
                     </table>

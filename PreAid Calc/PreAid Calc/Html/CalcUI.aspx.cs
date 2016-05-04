@@ -11,10 +11,10 @@ namespace PreAid_Calc
     {
         /*Constants to be taken from web page*/
         /*Will be set when associated method is called*/
-        Boolean priorTo2007 = false;
-        Boolean purchasedLocalFeesPlan = false;
-        Boolean purchasedDiffFeesPlan = false;
-        private int creditHours = 0;
+        Boolean priorTo2007;
+        Boolean purchasedLocalFeesPlan;
+        Boolean purchasedDiffFeesPlan;
+        private int creditHours;
         private double tuitionAndFeeRate;
         private double prepaidTuitionPlanRate;
         private double localFeesPlanRate;
@@ -23,23 +23,52 @@ namespace PreAid_Calc
         /*This var will be able to be updated by admin*/
         private double currentTuitionRate = 203.94;
 
+        /*Keeps track of credit hours field value before modification*/
+        private int currentVal;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            /*Retrieve values for global vars*/
+            this.priorTo2007 = (ViewState["priorTo2007"]!=null) ? (bool)ViewState["priorTo2007"] : false;
+            this.purchasedLocalFeesPlan = (ViewState["purchasedLocalFeesPlan"]!=null) ? (bool)ViewState["purchasedLocalFeesPlan"] : false;
+            this.purchasedDiffFeesPlan = (ViewState["purchasedDiffFeesPlan"]!=null) ? (bool)ViewState["purchasedDiffFeesPlan"] : false;
+            this.creditHours = (ViewState["creditHours"]!=null) ? (int)ViewState["creditHours"] : 0;
+            this.tuitionAndFeeRate = (ViewState["tuitionAndFeeRate"]!=null) ? (double)ViewState["tuitionAndFeeRate"] : 0;
+            this.prepaidTuitionPlanRate = (ViewState["prepaidTuitionPlanRate"]!=null) ? (double)ViewState["prepaidTuitionPlanRate"] : 0;
+            this.localFeesPlanRate = (ViewState["localFeesPlanRate"]!=null) ? (double)ViewState["localFeesPlanRate"] : 0;
+            this.prepaidDiffFeePlanRate = (ViewState["prepaidDiffFeePlanRate"]!=null) ? (double)ViewState["prepaidDiffFeePlanRate"] : 0;
+            this.currentVal = (ViewState["currentVal"]!=null) ? (int)ViewState["currentVal"] : 0;
         }
 
         /*Called from HTML's oninput attribute to update creditHours immediately. Value must be between 0 and 18.*/
-        protected void creditHoursUpdated(int updatedVal)
+        protected void creditHoursUpdated(String updatedVal)
         {
-            if (updatedVal < 0)
+            /*Take in only valid input*/
+            int newVal;
+            if (int.TryParse(updatedVal, out newVal))
             {
-                updatedVal = 0;
+                if (newVal < 0)
+                {
+                    newVal = 0;
+                }
+                else if (newVal > 18)
+                {
+                    newVal = 18;
+                }
+
+                /*Update variables and text field*/
+                this.creditHours = newVal;
+                currentVal = newVal;
+                credHours.Text = currentVal.ToString();
+
+                /*Update ViewState vars*/
+                ViewState.Add("currentVal", currentVal);
+                ViewState.Add("creditHours", creditHours);
             }
-            if (updatedVal > 18)
+            else //Parse failed, reset text field value
             {
-                updatedVal = 18;
+                credHours.Text = currentVal.ToString();
             }
-            this.creditHours = updatedVal;
         }
 
         /*When prior to 2007 "yes" clicked, disable diff fee plan list (use onclick)*/
@@ -71,6 +100,11 @@ namespace PreAid_Calc
                 q3rbtyes.Checked = false;
                 diffFeePlanSelected();
             }
+
+            /*Update ViewState vars*/
+            ViewState["priorTo2007"] = this.priorTo2007;
+            ViewState["tuitionAndFeeRate"] = this.tuitionAndFeeRate;
+            ViewState["prepaidTuitionPlanRate"] = this.prepaidTuitionPlanRate;
         }
 
         /*Called when corresponding HTML radio button is clicked to update vars.*/
@@ -78,6 +112,10 @@ namespace PreAid_Calc
         {
             this.purchasedLocalFeesPlan = q2rbtyes.Checked;
             this.localFeesPlanRate = purchasedLocalFeesPlan ? 38.28 : 0;
+
+            /*Update ViewState vars*/
+            ViewState["purchasedLocalFeesPlan"] = this.purchasedLocalFeesPlan;
+            ViewState["localFeesPlanRate"] = this.localFeesPlanRate;
         }
 
         /*Called when corresponding HTML radio button is clicked to update vars.*/
@@ -85,6 +123,10 @@ namespace PreAid_Calc
         {
             this.purchasedDiffFeesPlan = q3rbtyes.Checked;
             this.prepaidDiffFeePlanRate = purchasedDiffFeesPlan ? 36.38 : 0;
+
+            /*Update ViewState vars*/
+            ViewState["purchasedDiffFeesPlan"] = this.purchasedDiffFeesPlan;
+            ViewState["prepaidDiffFeePlanRate"] = this.prepaidDiffFeePlanRate;
         }
 
         /*Called when TBD*/
@@ -108,17 +150,29 @@ namespace PreAid_Calc
             System.Console.WriteLine("Your Estimated Out-of-Pocket Tuition & Fee Cost (per term): " + (estTuitionAndFees - estPrepaidBenefit));
         }
 
+        public void displayResults()
+        {
+            double estTuitionAndFees = creditHours * tuitionAndFeeRate;
+            double estPrepaidBenefit = (prepaidTuitionPlanRate + localFeesPlanRate + prepaidDiffFeePlanRate) * creditHours;
+
+            estTuititon.Text = String.Format("{0:0.00}", estTuitionAndFees);
+            estBenefit.Text = String.Format("{0:0.00}", estPrepaidBenefit);
+            estOutOfPocket.Text = String.Format("{0:0.00}", (estTuitionAndFees - estPrepaidBenefit));
+        }
+
         /*Prior to 2007 question*/
         protected void q1rbtyes_CheckedChanged(object sender, EventArgs e)
         {
             q1rbtno.Checked = false;
             priorTo2007Selected();
+            displayResults();
         }
 
         protected void q1rbtno_CheckedChanged(object sender, EventArgs e)
         {
             q1rbtyes.Checked = false;
             priorTo2007Selected();
+            displayResults();
         }
 
         /*Local Fees Plan question*/
@@ -126,12 +180,14 @@ namespace PreAid_Calc
         {
             q2rbtno.Checked = false;
             localFeesPlanSelected();
+            displayResults();
         }
 
         protected void q2rbtno_CheckedChanged(object sender, EventArgs e)
         {
             q2rbtyes.Checked = false;
             localFeesPlanSelected();
+            displayResults();
         }
 
         /*Differential Fee Plan question*/
@@ -139,12 +195,21 @@ namespace PreAid_Calc
         {
             q3rbtno.Checked = false;
             diffFeePlanSelected();
+            displayResults();
         }
 
         protected void q3rbtno_CheckedChanged(object sender, EventArgs e)
         {
             q3rbtyes.Checked = false;
             diffFeePlanSelected();
+            displayResults();
+        }
+
+        protected void creditHours_TextChanged(object sender, EventArgs e)
+        {
+            String val = credHours.Text;
+            creditHoursUpdated(credHours.Text);
+            displayResults();
         }
     }
 }
