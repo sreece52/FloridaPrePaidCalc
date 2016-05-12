@@ -2,7 +2,7 @@
     align-content:center;
 }
 
-#title {
+#title{
     background-color: #006E8C;
     color: white; 
     text-align: center;
@@ -28,11 +28,7 @@
     color: white;
 }
 
-#tableHolder {
+#r1{
     background-color: #72BB53; 
     color: black;
-}
-
-img {
-    float:right;
 }
