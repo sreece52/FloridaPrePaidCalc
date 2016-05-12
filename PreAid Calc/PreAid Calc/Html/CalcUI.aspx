@@ -99,16 +99,16 @@
                                 <div id="r1" class="panel-heading"> Rate Summary </div>
                                 <div class="panel-body">
                                     Estimated Tuition & Fee Rate (per credit hour):
-                                    <input type="text" value="">
+                                    <asp:TextBox type="text" value="" runat="server" ID="estTuitionRate" Enabled="false"/>
                                     <br><hr/>
                                     Estimated Tuition Plan Rate (per credit hour):
-                                    <input type="text" value="">
+                                    <asp:TextBox type="text" value="" runat="server" ID="estTuitionPlanRate" Enabled="false"/>
                                     <br><hr/>
                                     Estimated Florida Prepaid Local Fees Plan Rate (per credit hour):
-                                    <input type="text" value="">
+                                    <asp:TextBox type="text" value="" runat="server" ID="estLocalFeesRate" Enabled="false"/>
                                     <br><hr/>
                                     Estimated Florida Prepaid Diffrential Fee Plan Rate (per credit hour):
-                                    <input type="text" value="">
+                                    <asp:TextBox type="text" value="" runat="server" ID="estDiffPlanRate" Enabled="false"/>
                                 </div>
                             </div>
                         </div>

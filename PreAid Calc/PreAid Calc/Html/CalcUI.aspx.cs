@@ -33,10 +33,10 @@ namespace PreAid_Calc
             this.purchasedLocalFeesPlan = (ViewState["purchasedLocalFeesPlan"]!=null) ? (bool)ViewState["purchasedLocalFeesPlan"] : false;
             this.purchasedDiffFeesPlan = (ViewState["purchasedDiffFeesPlan"]!=null) ? (bool)ViewState["purchasedDiffFeesPlan"] : false;
             this.creditHours = (ViewState["creditHours"]!=null) ? (int)ViewState["creditHours"] : 0;
-            this.tuitionAndFeeRate = (ViewState["tuitionAndFeeRate"]!=null) ? (double)ViewState["tuitionAndFeeRate"] : 0;
-            this.prepaidTuitionPlanRate = (ViewState["prepaidTuitionPlanRate"]!=null) ? (double)ViewState["prepaidTuitionPlanRate"] : 0;
-            this.localFeesPlanRate = (ViewState["localFeesPlanRate"]!=null) ? (double)ViewState["localFeesPlanRate"] : 0;
-            this.prepaidDiffFeePlanRate = (ViewState["prepaidDiffFeePlanRate"]!=null) ? (double)ViewState["prepaidDiffFeePlanRate"] : 0;
+            this.tuitionAndFeeRate = (ViewState["tuitionAndFeeRate"]!=null) ? (double)ViewState["tuitionAndFeeRate"] : 0.00;
+            this.prepaidTuitionPlanRate = (ViewState["prepaidTuitionPlanRate"]!=null) ? (double)ViewState["prepaidTuitionPlanRate"] : 0.00;
+            this.localFeesPlanRate = (ViewState["localFeesPlanRate"]!=null) ? (double)ViewState["localFeesPlanRate"] : 0.00;
+            this.prepaidDiffFeePlanRate = (ViewState["prepaidDiffFeePlanRate"]!=null) ? (double)ViewState["prepaidDiffFeePlanRate"] : 0.00;
             this.currentVal = (ViewState["currentVal"]!=null) ? (int)ViewState["currentVal"] : 0;
         }
 
@@ -111,7 +111,7 @@ namespace PreAid_Calc
         protected void localFeesPlanSelected()
         {
             this.purchasedLocalFeesPlan = q2rbtyes.Checked;
-            this.localFeesPlanRate = purchasedLocalFeesPlan ? 38.28 : 0;
+            this.localFeesPlanRate = purchasedLocalFeesPlan ? 38.28 : 0.00;
 
             /*Update ViewState vars*/
             ViewState["purchasedLocalFeesPlan"] = this.purchasedLocalFeesPlan;
@@ -122,7 +122,7 @@ namespace PreAid_Calc
         protected void diffFeePlanSelected()
         {
             this.purchasedDiffFeesPlan = q3rbtyes.Checked;
-            this.prepaidDiffFeePlanRate = purchasedDiffFeesPlan ? 36.38 : 0;
+            this.prepaidDiffFeePlanRate = purchasedDiffFeesPlan ? 36.38 : 0.00;
 
             /*Update ViewState vars*/
             ViewState["purchasedDiffFeesPlan"] = this.purchasedDiffFeesPlan;
@@ -152,6 +152,13 @@ namespace PreAid_Calc
 
         public void displayResults()
         {
+            /*Rate Summary*/
+            estTuitionRate.Text = tuitionAndFeeRate.ToString();
+            estTuitionPlanRate.Text = prepaidTuitionPlanRate.ToString();
+            estLocalFeesRate.Text = localFeesPlanRate.ToString();
+            estDiffPlanRate.Text = prepaidDiffFeePlanRate.ToString();
+
+            /*Cost Summary*/
             double estTuitionAndFees = creditHours * tuitionAndFeeRate;
             double estPrepaidBenefit = (prepaidTuitionPlanRate + localFeesPlanRate + prepaidDiffFeePlanRate) * creditHours;
 

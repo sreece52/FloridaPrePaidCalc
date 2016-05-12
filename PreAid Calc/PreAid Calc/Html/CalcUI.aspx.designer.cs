@@ -76,6 +76,42 @@ namespace PreAid_Calc {
         protected global::System.Web.UI.WebControls.TextBox credHours;
         
         /// <summary>
+        /// estTuitionRate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox estTuitionRate;
+        
+        /// <summary>
+        /// estTuitionPlanRate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox estTuitionPlanRate;
+        
+        /// <summary>
+        /// estLocalFeesRate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox estLocalFeesRate;
+        
+        /// <summary>
+        /// estDiffPlanRate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox estDiffPlanRate;
+        
+        /// <summary>
         /// estTuititon control.
         /// </summary>
         /// <remarks>
