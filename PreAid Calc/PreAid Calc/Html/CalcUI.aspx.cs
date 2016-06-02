@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -129,42 +128,21 @@ namespace PreAid_Calc
             ViewState["prepaidDiffFeePlanRate"] = this.prepaidDiffFeePlanRate;
         }
 
-        /*Called when TBD*/
-        // TODO decide when method is called
-        public void displayRateSummary()
-        {
-            System.Console.WriteLine("Estimated Tuition & Fee Rate at FGCU (per credit hour): {0}", tuitionAndFeeRate);
-            System.Console.WriteLine("Estimated Florida Prepaid Tuition Plan Rate (per credit hour): {0}", prepaidTuitionPlanRate);
-            System.Console.WriteLine("Estimated Florida Prepaid Local Fees Plan Rate (per credit hour): {0}", localFeesPlanRate);
-            System.Console.WriteLine("Estimated Florida Prepaid Differential Fee Plan Rate (per credit hour): {0}", prepaidDiffFeePlanRate);
-        }
-
-        /*Called when TBD*/
-        // TODO decide when method is called
-        public void displayCostSummary()
-        {
-            double estTuitionAndFees = creditHours * tuitionAndFeeRate;
-            double estPrepaidBenefit = (prepaidTuitionPlanRate + localFeesPlanRate + prepaidDiffFeePlanRate) * creditHours;
-            System.Console.WriteLine("Total Estimated Tuition & Fees: " + estTuitionAndFees);
-            System.Console.WriteLine("Total Estimated Florida Prepaid Benefit: " + estPrepaidBenefit);
-            System.Console.WriteLine("Your Estimated Out-of-Pocket Tuition & Fee Cost (per term): " + (estTuitionAndFees - estPrepaidBenefit));
-        }
-
         public void displayResults()
         {
             /*Rate Summary*/
-            estTuitionRate.Text = tuitionAndFeeRate.ToString();
-            estTuitionPlanRate.Text = prepaidTuitionPlanRate.ToString();
-            estLocalFeesRate.Text = localFeesPlanRate.ToString();
-            estDiffPlanRate.Text = prepaidDiffFeePlanRate.ToString();
+            estTuitionRate.Text = String.Format("${0}", tuitionAndFeeRate.ToString("N2"));
+            estTuitionPlanRate.Text = String.Format("${0}", prepaidTuitionPlanRate.ToString("N2"));
+            estLocalFeesRate.Text = String.Format("${0}", localFeesPlanRate.ToString("N2"));
+            estDiffPlanRate.Text = String.Format("${0}", prepaidDiffFeePlanRate.ToString("N2"));
 
             /*Cost Summary*/
             double estTuitionAndFees = creditHours * tuitionAndFeeRate;
             double estPrepaidBenefit = (prepaidTuitionPlanRate + localFeesPlanRate + prepaidDiffFeePlanRate) * creditHours;
 
-            estTuititon.Text = String.Format("{0:0.00}", estTuitionAndFees);
-            estBenefit.Text = String.Format("{0:0.00}", estPrepaidBenefit);
-            estOutOfPocket.Text = String.Format("{0:0.00}", (estTuitionAndFees - estPrepaidBenefit));
+            estTuititon.Text = String.Format("${0:N2}", estTuitionAndFees);
+            estBenefit.Text = String.Format("${0:N2}", estPrepaidBenefit);
+            estOutOfPocket.Text = String.Format("${0:N2}", (estTuitionAndFees - estPrepaidBenefit));
         }
 
         /*Prior to 2007 question*/
